@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+	<!-- https://newsignature.github.io/us-map/#usage-methods view-source:https://statesymbolsusa.org/categories/bird-->
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/raphael.js"></script>
+		<script src="js/jquery.usmap.js"></script>
+		<link rel="stylesheet" type="text/css" href="resources/style.css">
+	</head>
+	<body>
+		<div id="main">
+			<div id="mySidenav" class="sidenav">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <a href="index.html" style="color:#59c7f9">STATE BIRDS</a>
+			  <a href="birds_near_me.html" style="color:#c359f9">BIRDS NEAR ME</a>
+			  <a href="bird_index.html" style="color:#f959f3">BIRD INDEX</a>
+			  <a href="about.html" style="color:#f95996">ABOUT</a>
+			</div>
+			<div id="navSymbol" onclick="openNav();">&#9776;</div>
+			<h1 id="siteName">POCKET BIRB</h1>
+			<br/>
+			<div id="wrapper">
+			</div>
+		</div>
+		<script src="js/info.js"></script>
+		<script src="js/navbar.js"></script>
+		<script>
+	    	var items = Object.keys(birds).map(function(key) {
+			    return [key, birds[key]];
+			});
+
+			items.sort(function(a, b){
+				var nameA=a[1].toLowerCase();
+				var nameB=b[1].toLowerCase();
+				if (nameA < nameB)
+			 		return -1;
+				if (nameA > nameB)
+			 		return 1;
+			 	return 0; 
+			});
+
+			for (var i = 0; i < items.length; i++) {
+				$('#wrapper').append($('<h1>',{text:items[i][1]}));
+				$('#wrapper').append($('<h2>',{text:items[i][0]}));
+				$('#wrapper').append($('<img>',{src:images[items[i][0]]}));
+			}	
+		</script>
+	</body>
+</html>

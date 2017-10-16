@@ -1,0 +1,105 @@
+/* import fonts */
+@font-face {
+   font-family: Dosis-Title;
+   src: url("fonts/Dosis-Bold.ttf");
+}
+@font-face {
+   font-family: Dosis-Body;
+   src: url("fonts/Dosis-ExtraLight.ttf");
+}
+@font-face {
+   font-family: Dosis-Header;
+   src: url("fonts/Dosis-SemiBold.ttf");
+}
+/* end import fonts */
+
+/* navbar */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #23396d;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#navSymbol {
+	font-size:30px;
+	cursor:pointer;
+	background-color: #23396d;
+	color:white;
+	width:45px; 
+	height:45px;
+	text-align: center;
+	display: inline-block;
+}
+/* end navbar */
+
+/* background gradient and default font */
+body {
+    font-family: Dosis-Body;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: #7da1db; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#7da1db, #66654a); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7da1db, #66654a); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7da1db, #66654a); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7da1db, #66654a); /* Standard syntax (must be last) */
+}
+/* end background gradient and default font */
+
+/* positioning center div */
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+/* end positioning center div */
+
+#siteName{
+  display: inline;
+}
+
+h1 {
+	font-family: Dosis-Title;
+	color:#23396d;
+}
+
+h2 {
+	font-family: Dosis-Header;
+}
+
+#wrapper {
+  text-align: center;
+}

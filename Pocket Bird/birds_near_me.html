@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<!-- https://newsignature.github.io/us-map/#usage-methods view-source:https://statesymbolsusa.org/categories/bird-->
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js/raphael.js"></script>
+		<script src="js/jquery.usmap.js"></script>
+		<link rel="stylesheet" type="text/css" href="resources/style.css">
+		<style>
+			html {
+			    height: 100%
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="mySidenav" class="sidenav">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <a href="index.html" style="color:#59c7f9">STATE BIRDS</a>
+			  <a href="birds_near_me.html" style="color:#c359f9">BIRDS NEAR ME</a>
+			  <a href="bird_index.html" style="color:#f959f3">BIRD INDEX</a>
+			  <a href="about.html" style="color:#f95996">ABOUT</a>
+			</div>
+			<div id="navSymbol" onclick="openNav();">&#9776;</div>
+			<h1 id="siteName">POCKET BIRB</h1>
+			<br/>
+			<div id="wrapper">
+			</div>
+		</div>
+		<script src="js/info.js"></script>
+		<script src="js/navbar.js"></script>
+		<script>
+			var reply;
+		    $.ajax({
+		        url: "http://www.geoplugin.net/json.gp?jsoncallback=?",
+		        async: false,
+		        dataType: 'json',
+		        success: function(data) {
+		            reply = data;
+		            $('#wrapper').append($('<h1>',{text:'Your state bird is: '}))
+		            $('#wrapper').append($('<h1>',{text:birds[reply["geoplugin_region"]]}));
+		            $('#wrapper').append($('<img>',{src:images[reply["geoplugin_region"]]}));
+		        }
+		    });
+		</script>
+	</body>
+</html>
