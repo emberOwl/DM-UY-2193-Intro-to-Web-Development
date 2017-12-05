@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Static files
 app.use(express.static(__dirname + '/dist'));
 
+const commentList = [];
 
 const imageList = [
 	{
@@ -54,6 +55,17 @@ app.route('/image')
 		res.json({
 			success: 1,
 			message:'Image Successfully added!'
+		});
+	});
+
+app.route('/comment')
+	.get((req, res) => res.json(commentList))
+	.post((req, res) => {
+		const { comment } = req.body;
+		commentList.push(comment);
+		res.json({
+			success: 1,
+			message:'Comment Successfully added!'
 		});
 	});
 

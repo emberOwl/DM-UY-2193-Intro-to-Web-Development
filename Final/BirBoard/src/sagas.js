@@ -62,7 +62,7 @@ function* postImage () {
   try {
     yield delay(1000);
     const state = yield select();
-    const url = FILESTACK_URL + state.get('upload').get('filters') + state.get('upload').get('handle');
+    const url = FILESTACK_URL + state['images'].get('upload').get('filters') + state['images'].get('upload').get('handle');
     const result = yield postToServer({ url });
     yield put({ type: 'POST_IMAGE_SUCCESS' });
   } catch (error) {

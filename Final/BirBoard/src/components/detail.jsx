@@ -33,8 +33,8 @@ export class Detail extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    imageList: state.get('imageList').toJS(),
-    isLoading: state.getIn(['view', 'isLoading'])
+    imageList: state['images'].get('imageList').toJS(),
+    isLoading: state['images'].getIn(['view', 'isLoading'])
   };
 }
 

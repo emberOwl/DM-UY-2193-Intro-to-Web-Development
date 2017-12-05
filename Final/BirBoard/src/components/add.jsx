@@ -76,9 +76,9 @@ export class Add extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    image: state.get('upload').get('handle'),
-    filter: state.get('upload').get('filters'),
-    isLoading: state.getIn(['view', 'isLoading'])
+    image: state['images'].get('upload').get('handle'),
+    filter: state['images'].get('upload').get('filters'),
+    isLoading: state['images'].getIn(['view', 'isLoading'])
   };
 }
 function mapDispatchToProps(dispatch) {

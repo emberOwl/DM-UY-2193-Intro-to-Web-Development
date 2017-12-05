@@ -1,4 +1,6 @@
-import 'babel-polyfill'; // for redux-saga
+// for redux-saga
+
+import 'babel-polyfill'; 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -13,19 +15,22 @@ import {
   compose
 } from 'redux';
 
-import reducer from './reducer';
+import reducer from './reducers/index';
+import CommentBox from './components/containers/CommentBox';
+import CommentsApi from './components/CommentsApi';
+
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
-// our components
+//  components
 import Layout from './components/layout';
 import { HomeContainer } from './components/home';
 import { DetailContainer } from './components/detail';
 import { AddContainer } from './components/add';
-// app css
+//  css
 import '../dist/css/style.css';
 
-// Filestack API requires to set a key
+// Filestack API
 filepicker.setKey("AvoVEaaisToKy4LmlrhEnz");
 
 const sagaMiddleware = createSagaMiddleware();
@@ -38,6 +43,8 @@ const store = createStore(
 );
 sagaMiddleware.run(rootSaga);
 
+var commentsApi = new CommentsApi();
+
 // the 3 paths of the app
 const routes = <Route component={Layout}>
   <Route path="/" component={HomeContainer} />
@@ -45,7 +52,8 @@ const routes = <Route component={Layout}>
   <Route path="/add" component={AddContainer} />
 </Route>;
 
-// add provider as first component and connect the store to it
+
+// add provider 
 ReactDOM.render(
 	<Provider store={store}>
 		<Router history={hashHistory}>{routes}</Router>

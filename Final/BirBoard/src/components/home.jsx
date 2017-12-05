@@ -14,17 +14,19 @@ export class Home extends React.Component {
 			<div>
 				{this.props.isLoading ?
 					<Spinner /> :
-			    <ImageContainer imageList={this.props.imageList} />
-	      }
-	    </div>
+					<div>
+			    	<ImageContainer imageList={this.props.imageList} />
+			    	</div>
+	      		}
+	   		</div>
 		);
 	}
 }
 
 function mapStateToProps(state) {
   return {
-    imageList: state.get('imageList').toJS(),
-    isLoading: state.getIn(['view', 'isLoading'])
+    imageList: state['images'].get('imageList').toJS(),
+    isLoading: state['images'].getIn(['view', 'isLoading'])
   };
 }
 
